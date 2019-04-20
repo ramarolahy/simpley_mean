@@ -1,0 +1,27 @@
+extends layout.pug
+
+block content
+    div(class="jumbotron bg-transparent")
+        svg(class="big-logo" viewbox="0 0 10 2")
+            a(href="/")
+                text(x="5" y="1" alignment-baseline="middle" text-anchor="middle" font-size="1" fill="none" stroke-width=".02" stroke="#fff" font-family="Pacifico, sans-serif" letter-spacing="0.02px") Simpley
+
+    div(class="card bg-transparent border-0 px-5 py-5")
+        div.wrap__error_msg.py-2
+            while message = flash.shift()
+                span(class="text-" + message.type + ' error_msg text-center alert"') #{message.message}
+
+        form(id="loginForm" class="mx-auto" action="login" method="POST")
+            div(class="form-group")
+                label(for="username" class="text-white") Email address
+                input(type="email" name="email" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email" required)
+                small(id="emailHelp" class="form-text text-muted") We'll never share your email with anyone else
+
+            div(class="form-group")
+                label(for="password" class="text-white") Password
+                input(type="password" name="password" class="form-control" id="password" placeholder="Password" required)
+
+            button(type="submit" id="login" class="btn btn-primary mt-4") Submit
+        p.signup-invite.text-center.pt-3
+            span(class="text-white") Don't have an account yet?
+                a(href="/signup")   signup.
