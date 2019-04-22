@@ -1,3 +1,30 @@
-<p>
-  login works!
+<svg class="big-log" viewBox="0 0 10 2">
+  <text class="svg_path" x="5" y="1" alignment-baseline="middle" text-anchor="middle" font-size="1" fill="none"
+        stroke-width=".02" stroke="#fff" font-family="Pacifico, sans-serif" letter-spacing="0.02px">
+    Simpley
+  </text>
+</svg>
+<p class="welcome-text text-white text-center">
+  Welcome to Simpley, a simple and easy way to plan your day!
 </p>
+<div class="card bg-transparent border-0 px-5 py-5">
+  <form id="signupForm" class="mx-auto" (submit)="login()">
+    <div class="form-group">
+      <label for="email" class="text-white">Email</label>
+      <input type="text" name="email" class="form-control" id="email"
+             autoComplete="off" placeholder="Enter email" [(ngModel)]="credentials.email"
+             required/>
+      <small id="emailHelp" class="form-text text-muted"> We'll never share your email with anyone else</small>
+    </div>
+    <div class="form-group">
+      <label for="password" class="text-white">Password</label>
+      <input type="password" name="password" class="form-control" id="password"
+             autoComplete="off" placeholder="Enter password" [(ngModel)]="credentials.password"  required/>
+    </div>
+    <button type="submit" id="signup" class="btn btn-primary mt-4">Live Simpley</button>
+    <p class="login-invite text-center pt-3">
+      <span class="text-white">Still need an account? <a routerLink="/signup">Signup here.</a></span>
+    </p>
+  </form>
+</div>
+

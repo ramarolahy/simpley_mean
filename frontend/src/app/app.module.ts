@@ -1,28 +1,50 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
+import {RouterModule, Routes} from '@angular/router';
+import {FormsModule} from "@angular/forms";
+// Components
+import {AppComponent} from './app.component';
+import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './login/login.component';
+import {SignupComponent} from './signup/signup.component';
+import {TodayComponent} from './today/today.component';
+import {MenuComponent} from './menu/menu.component';
+import {TaskListComponent} from './task-list/task-list.component';
+import {AddTaskComponent} from './add-task/add-task.component';
+// Services
+import {AuthenticationService} from "./services/authentication.service";
+import {AuthenticateService} from "./services/authenticate.service";
+import {ListService} from "./services/list.service";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-import { MenuComponent } from './menu/menu.component';
-import { HomeComponent } from './home/home.component';
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent},
+  {path: 'today', component: TodayComponent, canActivate: [AuthenticateService]}
+];
 
 @NgModule({
   declarations: [
-    // Add components here
+    // Components
     AppComponent,
     SignupComponent,
     LoginComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    TodayComponent,
+    TaskListComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [AuthenticationService, AuthenticateService, ListService],
   // Which components gets booted first?
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

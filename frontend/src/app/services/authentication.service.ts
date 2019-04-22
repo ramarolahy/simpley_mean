@@ -19,9 +19,10 @@ interface TokenResponse {
 }
 
 export interface TokenPayload {
+  firstname?: string;
+  lastname?: string;
   email: string;
   password: string;
-  firstname?: string;
 }
 
 // See https://angular.io/api/core/Injectable for Injectable decorator
