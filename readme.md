@@ -5,3 +5,8 @@ The description of this assignment can be found in Canvas at [Assignment #6](htt
 
 You should build your application in this repo cloned for you in Github Classroom. You'll submit your github URL in Canvas.
 
+
+# Outside Resources
++ https://blog.angularindepth.com/reading-the-rxjs-6-sources-map-and-pipe-94d51fec71c2
++ https://www.sitepoint.com/user-authentication-mean-stack/
++ https://www.sitepoint.com/mean-stack-angular-2-angular-cli/

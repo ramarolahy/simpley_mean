@@ -131,7 +131,7 @@ $ (function () {
         callAPI ('POST', '/api/today/', null, {
             'completed': false,
             'completedAt': null,
-            'owner': '5cb0e1ccf7d9033e18a5be80',
+            'owner': '5cbde27650e1537a95fb57ff',
             'desc': 'Create and Read from API',
             '__v': 0
         })

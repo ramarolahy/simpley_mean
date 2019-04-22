@@ -32,7 +32,8 @@ const signupRouter = require( './routes/authentication/signup');
 const logoutRouter = require( './routes/authentication/logout');
 const userRouter    = require('./routes/user/user');
 const todayRouter = require('./routes/today');
-const todoApiRouter = require('./routes/api/todo_api');
+const todoAPIRouter = require('./routes/api/todo_api');
+const userAPIRouter = require('./routes/api/user_api');
 
 // Route Middlewares
 app.use('/', indexRouter);
@@ -41,7 +42,8 @@ app.use('/signup', signupRouter);
 app.use('/logout', logoutRouter);
 app.use('/user', userRouter);
 app.use('/today', todayRouter);
-app.use('/api/today', todoApiRouter);
+app.use('/api', todoAPIRouter);
+app.use('/api', userAPIRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,6 +1,7 @@
 const express = require ('express');
 const router = express.Router ();
 const todayController = require ('../../controllers/todayController');
+const { authenticate } = require( '../../middleware/authenticate' );
 
 const TodayService = todayController.TodayService;
 
@@ -24,7 +25,7 @@ router.use((req, res, next)=>{
  * @type {Router}
  */
 // READ - today
-router.get ('/:userid', (req, res) => {
+router.get ('/today/:userid', authenticate, (req, res) => {
     TodayService.list (req.params.userid)
         .then (todos => {
             res.status (200);
@@ -38,7 +39,7 @@ router.get ('/:userid', (req, res) => {
     })
 });
 // CREATE - today
-router.post ('/', (req, res, next) => {
+router.post ('/today/:userid', authenticate, (req, res, next) => {
    const data = req.body;
     TodayService.create (data)
         .then (todo => {
@@ -53,7 +54,7 @@ router.post ('/', (req, res, next) => {
     })
 });
 // UPDATE - today
-router.put ('/:todoid', (req, res) => {
+router.put ('/today/:todoid', authenticate, (req, res) => {
     let putData = req.body;
     let todoid = req.params.todoid;
     TodayService.update (todoid, putData)
@@ -68,7 +69,7 @@ router.put ('/:todoid', (req, res) => {
     });
 });
 // DELETE - today
-router.delete('/:todoid', (req, res) => {
+router.delete('/today/:todoid', authenticate, (req, res) => {
     TodayService.delete(req.params.todoid)
         .then( todo => {
             res.status(200);
