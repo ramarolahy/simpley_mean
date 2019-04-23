@@ -1,0 +1,15 @@
+<div class="empty_entry_item_wrap">
+    <form (ngSubmit)="onSubmit()" name="newTodoForm">
+        <!--    <div class={"empty_entry_label"} ref={ el => this._emptyEntryLabel = el}>-->
+        <!--      <i class={"fas fa-plus addTodo_placeholder"} ref={ el => this._iconAddTodoPlaceholder = el}/>-->
+        <!--      <span class={"addTodo_placeholder"} ref={ el => this._spanAddTodoPlaceholder = el}>-->
+        <!--                            What else do you need todo? ...-->
+        <!--                        </span>-->
+        <!--    </div>-->
+        <input type="text" class="new_entry_input" [ngStyle]="{'display':'block'}" [(ngModel)]="newTodo.desc" name="desc" autoComplete="off"
+               placeholder="Take over the world ..." />
+        <button type="submit" class="all_btn new_entry_btn" [ngStyle]="{'display':'block'}" name="addTodo">
+            <i class="fas fa-plus addTodo"></i>
+        </button>
+    </form>
+</div>

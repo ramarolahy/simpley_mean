@@ -1,9 +1,7 @@
-/* You can add global css to this file, and also import other style files */
 /* =========== PAGE ============== */
 html {
   min-height: 100vh;
 }
-
 body {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -24,18 +22,7 @@ body {
 
 *::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
-}
-
-.spinningBubbles {
-  position: relative;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, 40vh);
-  -moz-transform: translate(-50%, 40vh);
-  -ms-transform: translate(-50%, 40vh);
-  -o-transform: translate(-50%, 40vh);
-  transform: translate(-50%, 40vh);
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 
 /* =========== NAVBAR - RADIAL MENU ============== */
@@ -54,7 +41,6 @@ div#radial-container {
   height: 250px;
   border-radius: 50%;
 }
-
 div.avatar {
   position: absolute;
   /* Check position inside navbar */
@@ -69,9 +55,9 @@ div.avatar {
   background-position: center, center; /* Center the image */
   background-repeat: no-repeat, no-repeat; /* Do not repeat the image */
   background-size: cover, cover; /* Resize the background image to cover the entire container */
-  -webkit-box-shadow: 0 7px 20px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0 7px 20px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow:  0 7px 20px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow:  0 7px 20px  rgba(0, 0, 0, 0.7);
+  box-shadow:  0 7px 20px  rgba(0, 0, 0, 0.7);
 }
 
 
@@ -84,9 +70,9 @@ div.wrap {
   height: 120px;
   border-radius: 50%;
   opacity: 10;
-  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow:  0px 0px 20px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:  0px 0px 20px rgba(0, 0, 0, 0.5);
+  box-shadow:  0px 0px 20px rgba(0, 0, 0, 0.5);
   filter: url("#filter");
   -webkit-filter: url("#filter");
 }
@@ -114,7 +100,6 @@ div.wrap > .blob:not([for="checking"]) {
   bottom: 45px;
   font-size: 30px;
 }
-
 div.wrap > a.blob:not([for="checking"]) {
   color: #0e262e;
 }
@@ -136,6 +121,7 @@ i.fas.nav-btn {
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
 }
+
 
 
 i.fas.fa-camera-retro {
@@ -166,10 +152,9 @@ label[for="avatarInput"] {
   height: 40px;
 }
 
-div.wrap > #checking ~ .blob {
+div.wrap > #checking~ .blob {
   z-index: 10;
 }
-
 /* first child: hidden checkbox */
 
 /* second child: settings button */
@@ -177,13 +162,11 @@ div.wrap > #checking ~ .blob:nth-child(2) {
   left: 0px;
   bottom: 135px;
 }
-
 /* second child: planner button */
 div.wrap > #checking ~ .blob:nth-child(3) {
   left: 110px;
   bottom: 110px;
 }
-
 /* second child: logout button */
 div.wrap > #checking ~ .blob:nth-child(4) {
   left: 135px;
@@ -209,46 +192,6 @@ div.jumbotron {
   height: 180px;
 }
 
-
-
-div.container--summary {
-  background-color: rgba(0, 0, 0, 0.09);
-  min-width: 640px;
-  height: 100px;
-  border-radius: 0 0 3px 3px;
-  padding: 5px 20px 3px 20px;
-  width: auto;
-  position: fixed;
-  top: 15px;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
-  transform: translateX(-50%);
-}
-
-.wrap--info {
-  width: 50%;
-}
-
-.info--amount {
-  color: green;
-  font-size: 1.1em;
-}
-
-.info--planned_expenses {
-  text-align: right;
-  float: right;
-  position: absolute;
-  top: 5px;
-  right: 20px;
-}
-
-.amount--planned_expenses {
-  font-size: 3em;
-}
-
 div.main_container {
   background-color: rgba(0, 0, 0, 0.09);
   min-width: 640px;
@@ -258,13 +201,16 @@ div.main_container {
   min-height: 750px;
   overflow-y: scroll;
   position: absolute;
-  top: 80px;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
+}
+
+div.list_wrap {
+  padding-bottom: 50px;
 }
 
 div.input_wrap {
@@ -304,9 +250,8 @@ div.wrap_home__icon {
 }
 
 div.wrap_home__icon:hover {
-  box-shadow: 0px 3px 30px 5px rgba(8, 11, 17, 0.92);
+  box-shadow:  0px 3px 30px 5px rgba(8, 11, 17, 0.92);
 }
-
 div.entry_item_wrap {
   background-color: rgba(68, 211, 229, 0.03);
   border: 0.5px solid rgba(52, 72, 92, 0.6);
@@ -377,13 +322,12 @@ div.empty_entry_label:hover {
 svg.big-logo {
   cursor: pointer;
 }
-
 h3.title_home__icon {
   color: white;
   font-family: 'Lato', sans-serif;
 }
 
-span.error_msg.text-center {
+span.error_msg.text-center  {
   background-color: rgba(21, 39, 47, 0.87);
   padding: 5px 20px;
   font-size: 1.2em;
@@ -425,10 +369,9 @@ span.wrap__icon_info-menu {
 
 p.welcome-text {
   padding-top: 0px;
-  margin: 0 -20px 0 0;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
 /* =========== LINKS ============== */
@@ -436,7 +379,6 @@ p.welcome-text {
 a {
   color: #00B7FF;
 }
-
 a.navbar-brand {
   text-shadow: 0 1px 10px black;
   font-size: 3em;
@@ -449,11 +391,9 @@ a.navbar-brand {
 svg.big-logo > a {
   text-decoration: none;
 }
-
 p.signup-invite > span > a, p.login-invite > span > a {
   text-decoration: none;
 }
-
 p.signup-invite > span > a:hover, p.login-invite > span > a:hover {
   text-decoration: none;
   color: #00B7FF;
@@ -480,24 +420,20 @@ li.nav-item {
   color: white;
   position: fixed;
 }
-
 #create_read {
   top: 7px;
   right: 250px;
 }
-
 #update {
   top: 7px;
   right: 140px;
 }
-
 #delete {
   top: 7px;
   right: 30px;
 }
 
 form#loginForm, form#signupForm {
-  padding-top: 0;
   width: 450px;
 }
 
@@ -517,9 +453,10 @@ input.new_entry_input {
   position: absolute;
   top: 0px;
   left: 0px;
-  background-color: rgba(14, 24, 33, 0.81);
+  display: none;
+  background-color:  rgb(16, 20, 22);
   border-radius: 5px;
-  box-shadow: 0px 1px 3px rgb(9, 15, 19);
+  box-shadow: 0px 2px 15px rgb(9, 15, 19);
   padding-left: 60px;
   color: rgb(187, 202, 212);
   font-size: 1.5em;
@@ -529,7 +466,6 @@ input.new_entry_input {
 
 input.new_entry_input:focus {
   border: 0.5px solid rgb(35, 86, 110);
-  box-shadow: 0px 1px 3px rgb(9, 15, 19);
 }
 
 input.new_entry_input.empty {
@@ -537,7 +473,7 @@ input.new_entry_input.empty {
 }
 
 input.new_entry_input::placeholder {
-  color: rgba(113, 132, 135, 0.25);
+  color: rgba(113,132,135,0.25);
   font-weight: 300;
 }
 
@@ -558,8 +494,9 @@ input.entry_label {
 }
 
 
+
 input.entry_label:focus {
-  border: rgb(193, 211, 216);
+  border:rgb(193, 211, 216);
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -609,18 +546,18 @@ button#login, button#signup {
 }
 
 button#login:hover, button#signup:hover {
-  -webkit-transform: scale(1.03);
-  -moz-transform: scale(1.03);
-  -ms-transform: scale(1.03);
-  -o-transform: scale(1.03);
-  transform: scale(1.03);
-  -webkit-box-shadow: 0 0.5px 15px rgba(0, 0, 0, 0.7);
-  -moz-box-shadow: 0 0.5px 15px rgba(0, 0, 0, 0.7);
-  box-shadow: 0 0.5px 15px rgba(0, 0, 0, 0.7);
+  bottom: 2px;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 button.hidden.wrap__icon_info-delete {
   right: 20px;
+}
+
+button.hidden.wrap__icon_info--check {
+  left: 15px;
 }
 
 button.hidden {
@@ -651,7 +588,7 @@ i.fa-check:hover, i.fa-check.true {
   color: rgb(67, 170, 106);
 }
 
-i.fa-pencil-alt:hover {
+i.fa-pencil-alt:hover{
   color: cornflowerblue;
 }
 
@@ -684,6 +621,7 @@ i.icon_info {
 }
 
 
+
 /* =========== BOOTSTRAP OVERRIDE ============== */
 textarea:focus,
 button[type="submit"]:focus,
@@ -701,7 +639,7 @@ button[type="submit"],
 input[type="text"],
 input[type="password"],
 input[type="email"],
-.uneditable-input {
+.uneditable-input{
   border: none;
   cursor: pointer;
 }

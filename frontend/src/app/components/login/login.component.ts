@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {AuthenticationService, TokenPayload} from "../services/authentication.service";
+import {AuthenticationService} from "../../services/auth/authentication.service";
+import {TokenPayload} from "../../services/api/api.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -20,8 +21,10 @@ export class LoginComponent {
   // to read about subscribe() from RxJS
   login() {
     this.auth.login(this.credentials).subscribe(() => {
+      // TODO: Add alert/messaging system
       this.router.navigateByUrl('/today');
     }, (err) => {
+      // TODO: Add alert/messaging system
       console.error(err);
     });
   }
