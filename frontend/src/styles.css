@@ -15,6 +15,13 @@
     font-size: .1em !important;
   }
 
+  p.welcome-text {
+    padding-top: 0px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 1.2em !important;
+  }
+
   div.card.bg-transparent {
     padding: 0px !important;
   }
@@ -93,7 +100,7 @@
   /*  ============ TODAY ================*/
 
   div.auth_wrap {
-      padding-top: 30% !important;
+      padding-top: 15% !important;
   }
 
   div.main_container {
@@ -125,7 +132,7 @@
   }
 
   div.wrap-home-links {
-    top: 50%;
+    bottom: 10% !important;
     position: relative;
     height: 300px;
   }
@@ -213,6 +220,28 @@
     position: absolute;
     top: 32px;
     left: 10px !important;
+  }
+
+  div.wrap-home-links {
+    top: 40%;
+    position: relative;
+    height: auto;
+  }
+
+  div.wrap_home__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: rgba(38, 113, 96, 0.69);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100px;
+    padding: 50px 30px;
+    height: auto;
+    cursor: pointer;
   }
 
 }

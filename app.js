@@ -14,34 +14,22 @@ const {mongoose} = require('./db/mongoose');
 
 const app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+app.use(cors());
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session( {secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true}));
 app.use(flash());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routers
-const indexRouter = require('./routes/index');
-const loginRouter = require( './routes/authentication/login');
-const signupRouter = require( './routes/authentication/signup');
-const logoutRouter = require( './routes/authentication/logout');
-const userRouter    = require('./routes/user/user');
-const todayRouter = require('./routes/today');
 const todoAPIRouter = require('./routes/api/todo_api');
 const userAPIRouter = require('./routes/api/user_api');
 
-// Route Middlewares
-app.use('/', indexRouter);
-app.use('/login', loginRouter);
-app.use('/signup', signupRouter);
-app.use('/logout', logoutRouter);
-app.use('/user', userRouter);
-app.use('/today', todayRouter);
+// API routes Middlewares
 app.use('/api', todoAPIRouter);
 app.use('/api', userAPIRouter);
 

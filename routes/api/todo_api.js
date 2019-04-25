@@ -1,27 +1,27 @@
 const express = require ('express');
 const router = express.Router ();
-const todayController = require ('../../controllers/todayController');
-const { authenticate } = require( '../../middleware/authenticate' );
-
-const TodayService = todayController.TodayService;
-
 const bodyParser = require( 'body-parser' );
+
 const urlencodedParser = bodyParser.urlencoded( { extended: false } );
 
-router.use((req, res, next)=>{
-    res.set({
-                // allow any domain, allow REST methods we've implemented
-                'Access-Control-Allow-Origin':'*',
-                'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,OPTIONS',
-                "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers",
-                // Set content-type for all api requests
-                'Content-type':'application/json'
-            });
-    if (req.method === 'OPTIONS'){
-        return res.status(200).end();
-    }
-    next();
-});
+const todayController = require ('../../controllers/todayController');
+const TodayService = todayController.TodayService;
+
+
+// router.use((req, res, next)=>{
+//     res.set({
+//                 // allow any domain, allow REST methods we've implemented
+//                 'Access-Control-Allow-Origin':'*',
+//                 'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,OPTIONS',
+//                 "Access-Control-Allow-Headers": "Content-Type, Access-Control-Allow-Headers",
+//                 // Set content-type for all api requests
+//                 'Content-type':'application/json'
+//             });
+//     if (req.method === 'OPTIONS'){
+//         return res.status(200).end();
+//     }
+//     next();
+// });
 
 /**
  * TODAY API ROUTES
@@ -42,7 +42,7 @@ router.get ('/today/:userid', (req, res) => {
     })
 });
 // CREATE - today
-router.post ('/today/:userid', urlencodedParser, (req, res, next) => {
+router.post ('/today/:userid', urlencodedParser, (req, res) => {
    const data = req.body;
     TodayService.create (data)
         .then (todo => {
@@ -72,7 +72,6 @@ router.put ('/today/:todoid', urlencodedParser, (req, res) => {
         }
     });
 });
-
 // DELETE - today
 router.delete('/today/:todoid', (req, res) => {
     TodayService.delete(req.params.todoid)

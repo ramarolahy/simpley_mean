@@ -32,13 +32,11 @@ class TodayService {
                 return todos;
             } );
     }
-
     // CREATE - today
     static create( data ) {
         const todo = new Todo( data );
         return todo.save();
     }
-
     // UPDATE - today
     static update( userid, todoid, data ) {
         return Todo.findById( todoid )
@@ -49,8 +47,6 @@ class TodayService {
             } )
 
     }
-
-
     // DELETE - today
     static delete( id ) {
         return Todo.findOneAndDelete( { _id: id } )
