@@ -110,7 +110,6 @@ router.post( '/:todoid', authenticate, ( req, res ) => {
     // Update selected todo item
     TodayService.update( req.params.todoid, body )
         .then( () => {
-            console.log( 'updated' );
             res.redirect( '/today' );
         } )
         .catch( ( err ) => {

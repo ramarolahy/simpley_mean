@@ -3,9 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-
-import {Todo} from "../../models/Todo";
-
 interface TokenResponse {
     token: string;
 }
@@ -46,7 +43,6 @@ export class ApiService {
         return this.token;
     }
 
-
     /**
      * Private method to facilitate making API calls. This will construct and return the proper HTTP request observable
      * depending on the specific type of request.
@@ -55,8 +51,9 @@ export class ApiService {
      * @param param: ':userid' | ':todoid'
      * @param user
      * @param body
+     * @param all
      */
-    public request(method: 'post' | 'get' | 'put' | 'delete', type: 'login' | 'signup' | 'today', param?: ':userid' | ':todoid', user?: TokenPayload, body?): Observable<any> {
+    public request(method: 'post' | 'get' | 'put' | 'delete', type: 'login' | 'signup' | 'today', param?: ':userid' | ':todoid', user?: TokenPayload, body?, all?: boolean): Observable<any> {
         let base;
         const jsonMimeType = {
             'Content-type': 'application/json'
@@ -70,7 +67,7 @@ export class ApiService {
             if (method === 'post') {
                 base = this.http.post(`${baseURL}/api/${type}`, user);
             } else {
-                base = this.http.get(`${baseURL}/api/${type}`, {headers: {Authorization: `Bearer ${tokenAuth}`}});
+                base = this.http.get(`${baseURL}/api/${type}`, {headers: {Authorization: `Bearer ${tokenAuth.token}`}});
             }
 
             // See https://blog.angularindepth.com/reading-the-rxjs-6-sources-map-and-pipe-94d51fec71c2 to read about pipe() and
@@ -105,12 +102,7 @@ export class ApiService {
                     );
                 default:
                     break;
-
-
             }
         }
-
-
     }
-
 }

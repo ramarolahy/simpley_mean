@@ -15,6 +15,10 @@ const TodoSchema = new Schema ({
                                        minlength: 1, // Min length of char
                                        trim: true // trim blank spaces
                                    },
+                                   order: {
+                                       type: Number,
+                                       default: 0
+                                   },
                                    completed: {
                                        type: Boolean,
                                        default: false

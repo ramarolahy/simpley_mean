@@ -1,4 +1,4 @@
-const {Todo} = require ('../models/todo');
+const { Todo } = require( '../models/todo' );
 
 /** This function will help limit task character lengths
  *
@@ -6,16 +6,16 @@ const {Todo} = require ('../models/todo');
  * @param limit : Integer -  Char limit count
  * @returns : old title if < limit ELSE newTitle
  */
-const limitTaskTitle = (title, limit = 17) => {
+const limitTaskTitle = ( title, limit = 17 ) => {
     const newTitle = [];
-    if (title.length > limit) {
-        title.split (' ').reduce ((acc, cur) => {
-            if (acc + cur.length <= limit) {
-                newTitle.push (cur);
+    if( title.length > limit ) {
+        title.split( ' ' ).reduce( ( acc, cur ) => {
+            if( acc + cur.length <= limit ) {
+                newTitle.push( cur );
             }
             return acc + cur.length;
-        }, 0);
-        return `${newTitle.join (' ')} ...`;
+        }, 0 );
+        return `${ newTitle.join( ' ' ) } ...`;
     }
     // return the result
     return title;
@@ -26,36 +26,38 @@ const limitTaskTitle = (title, limit = 17) => {
  */
 class TodayService {
     // READ - today
-    static list(userid) {
-        return Todo.find ({owner: userid})
-            .then (todos => {
+    static list( userid ) {
+        return Todo.find( { owner: userid } ).sort({order:1})
+            .then( todos => {
                 return todos;
-            });
+            } );
     }
 
     // CREATE - today
-    static create(data) {
-        const todo = new Todo (data);
-        return todo.save ();
+    static create( data ) {
+        const todo = new Todo( data );
+        return todo.save();
     }
 
     // UPDATE - today
-    static update(id, data) {
-        return Todo.findById(id)
-            .then((todo)=>{
-                todo.set(data);
+    static update( userid, todoid, data ) {
+        return Todo.findById( todoid )
+            .then( ( todo ) => {
+                todo.set( data );
                 todo.save();
                 return todo;
-            });
+            } )
+
     }
 
+
     // DELETE - today
-    static delete(id) {
-        return Todo.findOneAndDelete ({_id: id})
-            .then (todo => {
+    static delete( id ) {
+        return Todo.findOneAndDelete( { _id: id } )
+            .then( todo => {
                 // removed todo
                 return todo;
-            });
+            } );
     }
 }
 

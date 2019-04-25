@@ -58,9 +58,10 @@ router.post ('/today/:userid', urlencodedParser, (req, res, next) => {
 });
 // UPDATE - today
 router.put ('/today/:todoid', urlencodedParser, (req, res) => {
-    let putData = req.body;
-    let todoid = req.params.todoid;
-    TodayService.update (todoid, putData)
+    const putData = req.body;
+    const userid = req.body.owner;
+    const todoid = req.params.todoid;
+    TodayService.update (userid, todoid, putData)
         .then (updatedTodo => {
             res.status (200);
             res.json (updatedTodo);
@@ -71,6 +72,7 @@ router.put ('/today/:todoid', urlencodedParser, (req, res) => {
         }
     });
 });
+
 // DELETE - today
 router.delete('/today/:todoid', (req, res) => {
     TodayService.delete(req.params.todoid)

@@ -18,7 +18,7 @@ import {ApiService} from "./services/api/api.service";
 import {AuthenticationService} from "./services/auth/authentication.service";
 import {AuthenticateService} from "./services/auth/authenticate.service";
 import {TodayService} from "./services/today/today.service";
-
+import {DragDropModule} from "@angular/cdk/drag-drop";
 
 
 const routes: Routes = [
@@ -44,7 +44,8 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    DragDropModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}, ApiService , AuthenticationService, AuthenticateService, TodayService],
   // Which components gets booted first?

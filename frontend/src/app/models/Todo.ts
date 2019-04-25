@@ -3,4 +3,5 @@ export interface Todo {
     desc: string;
     completed: boolean;
     _id?: string;
+    order?: number;
 }

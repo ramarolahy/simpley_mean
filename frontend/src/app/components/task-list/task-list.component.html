@@ -1,21 +1,26 @@
-<div *ngFor="let todo of todos" id=" {{todo._id}} " class="entry_item_wrap  {{todo.completed.toString()}} ">
-  <i class="icon_info fas fa-check {{todo.completed.toString()}}" data-name="complete"></i>
-  <form>
-    <input type="hidden" name="todo_id" value="activity.id"/>
-    <input type="text" class="entry_label {{todo.completed.toString()}}"
-           autoComplete='off' name='updatedActivity' value="{{ todo.desc }}" required readOnly/>
-    <!-- Add check if is completed-->
-    <span class="wrap__icon_info wrap__icon_info-edit">
+<div cdkDropList (cdkDropListDropped)="drop($event)">
+    <div cdkDrag *ngFor="let todo of todos; index as i" id=" {{todo._id}} " class="entry_item_wrap  {{todo.completed.toString()}} ">
+        <i class="icon_info fas fa-check {{ todo.completed.toString() }}" data-name="complete"
+           (click)="editTodo(todo._id, {owner: todo.owner, completed: !todo.completed, completedAt: !todo.completed ? setDate() : null} ); todo.completed = !todo.completed"></i>
+        <form>
+            <input type="hidden" name="todo_id" value="activity.id"/>
+            <input type="text" class="entry_label {{todo.completed.toString()}}"
+                   autoComplete='off' name='updatedActivity' value="{{ todo.desc }}" required readOnly/>
+            <!-- Add check if is completed-->
+            <span class="wrap__icon_info wrap__icon_info-edit">
       <i class="icon_info fas fa-pencil-alt"></i>
       </span>
-  </form>
-  <div>
-    <input type="hidden" name="activity_id"/>
-    <button type="button" class="hidden delete__todo wrap__icon_info wrap__icon_info-delete" (click)="deleteTodo(todo._id); $event.stopPropagation()">
+        </form>
+        <div>
+            <input type="hidden" name="activity_id"/>
+            <button type="button" class="hidden delete__todo wrap__icon_info wrap__icon_info-delete"
+                    (click)="deleteTodo(todo._id); $event.stopPropagation()">
       <span class="delete__todo wrap__icon_info wrap__icon_info-delete">
         <i class="icon_info fas fa-trash-alt"></i>
       </span>
-    </button>
-  </div>
+            </button>
+        </div>
+    </div>
 </div>
+
 <app-add-task (addTodo)="onAddTodo($event)"></app-add-task>
