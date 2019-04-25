@@ -21,17 +21,27 @@ export class TaskListComponent implements OnInit {
     ngOnInit() {
         this.getTodos();
     }
+
+    /**
+     * Method to handle todo reordering with dragNdrop
+     * @param event
+     */
     drop(event: CdkDragDrop<Todo[]>) {
+        // Reorder todo items in the array
         moveItemInArray(this.todos, event.previousIndex, event.currentIndex);
         let newIndex = 0;
-       this.todos.forEach(todo =>{
-           this.todayService.editTodo(todo._id, {owner: todo.owner, order: newIndex}).subscribe(
-               res => res,
-           );
-           newIndex++;
-       });
-        console.log(this.todos);
+        // Update order field in the db for each todo with updated index.
+        this.todos.forEach(todo => {
+            this.todayService.editTodo(todo._id, {owner: todo.owner, order: newIndex}).subscribe(
+                res => res,
+            );
+            newIndex++;
+        });
     }
+
+    /**
+     * Method to fetch all todos from db
+     */
     public getTodos() {
         const userid = this.auth.getUserDetails()._id;
         this.todayService.getTodos(userid).subscribe(
@@ -47,7 +57,7 @@ export class TaskListComponent implements OnInit {
         return d.getUTCDate();
     }
 
-    public editTodo(todoid, body){
+    public editTodo(todoid, body) {
         this.updatedTodo = body;
         this.todayService.editTodo(todoid, this.updatedTodo).subscribe(
             res => res,

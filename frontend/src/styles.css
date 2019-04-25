@@ -159,17 +159,17 @@ div.wrap > #checking~ .blob {
 
 /* second child: settings button */
 div.wrap > #checking ~ .blob:nth-child(2) {
-  left: 0px;
-  bottom: 135px;
+  left: 150px;
+  bottom: 0px;
 }
 /* second child: planner button */
 div.wrap > #checking ~ .blob:nth-child(3) {
-  left: 110px;
-  bottom: 110px;
+  left: 240px;
+  bottom: 0px;
 }
 /* second child: logout button */
 div.wrap > #checking ~ .blob:nth-child(4) {
-  left: 135px;
+  left: 330px;
   bottom: 0px;
 }
 
