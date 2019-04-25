@@ -51,9 +51,8 @@ export class ApiService {
      * @param param: ':userid' | ':todoid'
      * @param user
      * @param body
-     * @param all
      */
-    public request(method: 'post' | 'get' | 'put' | 'delete', type: 'login' | 'signup' | 'today', param?: ':userid' | ':todoid', user?: TokenPayload, body?, all?: boolean): Observable<any> {
+    public request(method: 'post' | 'get' | 'put' | 'delete', type: 'login' | 'signup' | 'today', param?: ':userid' | ':todoid', user?: TokenPayload, body?): Observable<any> {
         let base;
         const jsonMimeType = {
             'Content-type': 'application/json'

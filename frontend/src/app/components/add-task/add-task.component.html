@@ -7,7 +7,7 @@
         <!--                        </span>-->
         <!--    </div>-->
         <input type="text" class="new_entry_input" [ngStyle]="{'display':'block'}" [(ngModel)]="newTodo.desc" name="desc" autoComplete="off"
-               placeholder="Take over the world ..." />
+               placeholder="Take over the world ..." required/>
         <button type="submit" class="all_btn new_entry_btn" [ngStyle]="{'display':'block'}" name="addTodo">
             <i class="fas fa-plus addTodo"></i>
         </button>
