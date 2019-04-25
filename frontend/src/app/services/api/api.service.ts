@@ -60,7 +60,7 @@ export class ApiService {
         const tokenAuth = {
             'token': `${this.getToken()}`
         };
-        const baseURL = 'http://localhost:3000';
+        const baseURL = 'http://simpley.ramarolahy.website';
         if (type === 'login' || type === 'signup') {
             // Depending one the request method, send token or set request headers accordingly
             if (method === 'post') {

@@ -664,7 +664,7 @@ var ApiService = /** @class */ (function () {
         var tokenAuth = {
             'token': "" + this.getToken()
         };
-        var baseURL = 'http://localhost:3000';
+        var baseURL = 'http://simpley.ramarolahy.website';
         if (type === 'login' || type === 'signup') {
             // Depending one the request method, send token or set request headers accordingly
             if (method === 'post') {
