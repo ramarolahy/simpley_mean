@@ -1,5 +1,5 @@
 <div cdkDropList (cdkDropListDropped)="drop($event)">
-    <div cdkDrag *ngFor="let todo of todos; index as i" id=" {{todo._id}} "
+    <div cdkDrag cdkDragLockAxis="y" *ngFor="let todo of todos; index as i" id=" {{todo._id}} "
          class="entry_item_wrap  {{todo.completed.toString()}} ">
         <i class="icon_info fas fa-check {{ todo.completed.toString() }}"
            (click)="editTodo(todo._id, {owner: todo.owner, completed: !todo.completed,
@@ -14,15 +14,15 @@
             <!--                <i class="icon_info fas fa-pencil-alt"></i>-->
             <!--            </span>-->
         </form>
-        <div>
-            <input type="hidden" name="activity_id"/>
-            <button type="button" class="hidden delete__todo wrap__icon_info wrap__icon_info-delete"
-                    (click)="deleteTodo(todo._id); $event.stopPropagation()">
-                  <span class="delete__todo wrap__icon_info wrap__icon_info-delete">
-                    <i class="icon_info fas fa-trash-alt"></i>
-                  </span>
-            </button>
-        </div>
+
+        <button type="button" class="hidden delete__todo wrap__icon_info wrap__icon_info-delete"
+                (click)="deleteTodo(todo._id); $event.stopPropagation()">
+              <span class="delete__todo wrap__icon_info wrap__icon_info-delete">
+                <i class="icon_info fas fa-trash-alt"></i>
+              </span>
+        </button>
+
+            <i class="icon_info fas fa-grip-lines" cdkDragHandle></i>
     </div>
 </div>
 

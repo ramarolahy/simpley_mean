@@ -1,9 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {TodayService} from "../../services/today/today.service";
 import {AuthenticationService} from "../../services/auth/authentication.service";
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import {Todo} from "../../models/Todo";
-import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
     selector: 'app-task-list',
@@ -13,7 +12,7 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class TaskListComponent implements OnInit {
     private todos: Todo[] = [];
     private updatedTodo: Todo;
-
+    @Input('cdkDropListOrientation') orientation: 'vertical';
 
     constructor(private todayService: TodayService, private auth: AuthenticationService) {
     }
