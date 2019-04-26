@@ -9,7 +9,7 @@ if (env === 'development') {
     DB_URI = process.env.MONGODB_DEV_URI;
 } if (env === 'production') {
     // a5 8084 a6 8085 final 8086. Or just shut down past version
-    process.env.PORT = 8084;
+    process.env.PORT = 8085;
     DB_URI = process.env.MONGODB_URI;
 } else if (env === 'test') {
     process.env.PORT = 3000;

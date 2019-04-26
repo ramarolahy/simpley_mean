@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 
 import {ApiService, TokenPayload} from "../api/api.service";
 
+
 // Interfaces here
 // The interface is to handle the data types (useful for type checking the application.
 export interface UserDetails {

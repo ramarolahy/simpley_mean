@@ -4,6 +4,10 @@ import {HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {APP_BASE_HREF} from "@angular/common";
+import {DragDropModule} from "@angular/cdk/drag-drop";
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 // Components
 import {AppComponent} from './app.component';
 import {HomeComponent} from './components/home/home.component';
@@ -18,38 +22,49 @@ import {ApiService} from "./services/api/api.service";
 import {AuthenticationService} from "./services/auth/authentication.service";
 import {AuthenticateService} from "./services/auth/authenticate.service";
 import {TodayService} from "./services/today/today.service";
-import {DragDropModule} from "@angular/cdk/drag-drop";
+import {AlertService} from "./services/alerts/alert.service";
 
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'today', component: TodayComponent, canActivate: [AuthenticateService]}
+    {path: '', component: HomeComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'signup', component: SignupComponent},
+    {path: 'today', component: TodayComponent, canActivate: [AuthenticateService]}
 ];
 
 @NgModule({
-  declarations: [
-    // Components
-    AppComponent,
-    SignupComponent,
-    LoginComponent,
-    MenuComponent,
-    HomeComponent,
-    TodayComponent,
-    TaskListComponent,
-    AddTaskComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-    DragDropModule
-  ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/'}, ApiService , AuthenticationService, AuthenticateService, TodayService],
-  // Which components gets booted first?
-  bootstrap: [AppComponent]
+    declarations: [
+        // Components
+        AppComponent,
+        SignupComponent,
+        LoginComponent,
+        MenuComponent,
+        HomeComponent,
+        TodayComponent,
+        TaskListComponent,
+        AddTaskComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        RouterModule.forRoot(routes),
+        DragDropModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            timeOut: 3000,
+            positionClass: 'toast-bottom-right',
+            preventDuplicates: true,
+        })
+    ],
+    providers: [{
+        provide: APP_BASE_HREF,
+        useValue: '/'
+    },
+        {provide: LocationStrategy, useClass: HashLocationStrategy},
+        ApiService, AuthenticationService, AuthenticateService, TodayService, AlertService],
+    // Which components gets booted first?
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

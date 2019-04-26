@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {AuthenticationService} from "../../services/auth/authentication.service";
 import {TokenPayload} from "../../services/api/api.service";
+import {AlertService} from "../../services/alerts/alert.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -16,7 +17,7 @@ export class SignupComponent {
         password: ''
     };
 
-    constructor(private auth: AuthenticationService, private router: Router) {
+    constructor(private auth: AuthenticationService, private router: Router, private toastr: AlertService) {
     }
 
     // See http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-subscribe
@@ -24,10 +25,10 @@ export class SignupComponent {
     signup() {
         this.auth.signup(this.credentials).subscribe(() => {
             // Redirect to login page if signup successful
-            // TODO: Add alert/messaging system
             this.router.navigateByUrl('/login');
+            this.toastr.showSuccess('Signup successful! You may now login.', null);
         }, (err) => {
-            // TODO: Add alert/messaging system
+            this.toastr.showWarning('Oops! Please make sure your information are correct.', null);
             console.error(err);
         });
     }

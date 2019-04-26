@@ -80,25 +80,24 @@ export class ApiService {
                     return res;
                 })
             );
-
         } else {
             switch (method) {
                 case "post":
-                    return this.http.post(`${baseURL}/api/${type}/${param}`, body, {headers: jsonMimeType}).pipe(
-                        map(res => res)
-                    );
+                    return this.http.post(`${baseURL}/api/${type}/${param}`, body, {headers: jsonMimeType})
+                        .pipe(map(res => res)
+                        );
                 case 'get':
-                    return this.http.get(`${baseURL}/api/${type}/${param}`).pipe(
-                        map(res => res)
-                    );
+                    return this.http.get(`${baseURL}/api/${type}/${param}`)
+                        .pipe(map(res => res)
+                        );
                 case "put":
-                    return this.http.put(`${baseURL}/api/${type}/${param}`, body, {headers: jsonMimeType}).pipe(
-                        map(res => res)
-                    );
+                    return this.http.put(`${baseURL}/api/${type}/${param}`, body, {headers: jsonMimeType})
+                        .pipe(map(res => res)
+                        );
                 case "delete":
-                    return this.http.delete(`${baseURL}/api/${type}/${param}`).pipe(
-                        map(res => res)
-                    );
+                    return this.http.delete(`${baseURL}/api/${type}/${param}`)
+                        .pipe(map(res => res)
+                        );
                 default:
                     break;
             }
