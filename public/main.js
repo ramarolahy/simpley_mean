@@ -376,7 +376,7 @@ var LoginComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<form id=\"avatarForm\" action=\"\" method=\"POST\">\n  <div id=\"radial-container\">\n    <div class=\"avatar\" [ngStyle]=\"{'background-image':'url(assets/images/avatar2.png)', 'background-size': '80%'}\" >\n<!--    <input id=\"avatarInput\" type=\"file\" name=\"avatar\" [ngStyle]=\"{'display':'none'}\"/>-->\n<!--      <label for=\"avatarInput\"><i class=\"fas fa-camera-retro\"></i></label>-->\n    <div class=\"wrap navbar-nav\">\n      <input id=\"checking\" type=\"checkbox\" [ngStyle]=\"{'display':'none'}\"/>\n      <a class=\"blob nav-link\"><i class=\"fas nav-btn fa-cog\"></i></a>\n      <a class=\"blob nav-link\"><i class=\"fas nav-btn fa-wallet\"></i></a>\n      <a class=\"blob nav-link\" (click)=\"logout()\"><i class=\"fas nav-btn fa-door-open\"></i></a>\n    </div>\n  </div>\n\n  </div>\n</form>\n"
+module.exports = "<div id=\"avatarForm\" action=\"\" method=\"POST\">\n    <div id=\"radial-container\">\n        <div class=\"avatar\" [ngStyle]=\"{'background-image':'url(assets/images/avatar2.png)', 'background-size': '80%'}\">\n            <!--    <input id=\"avatarInput\" type=\"file\" name=\"avatar\" [ngStyle]=\"{'display':'none'}\"/>-->\n            <!--      <label for=\"avatarInput\"><i class=\"fas fa-camera-retro\"></i></label>-->\n            <div class=\"wrap navbar-nav\">\n                <input id=\"checking\" type=\"checkbox\" [ngStyle]=\"{'display':'none'}\"/>\n                <a class=\"blob nav-link\"><i class=\"fas nav-btn fa-cog\"></i></a>\n                <a class=\"blob nav-link\"><i class=\"fas nav-btn fa-wallet\"></i></a>\n                <a class=\"blob nav-link\" (click)=\"logout()\"><i class=\"fas nav-btn fa-door-open\"></i></a>\n            </div>\n        </div>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -498,7 +498,7 @@ var SignupComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div cdkDropList (cdkDropListDropped)=\"drop($event)\">\n    <div cdkDrag cdkDragLockAxis=\"y\" *ngFor=\"let todo of todos; index as i\" id=\" {{todo._id}} \"\n         class=\"entry_item_wrap  {{todo.completed.toString()}} \">\n        <i class=\"icon_info fas fa-check {{ todo.completed.toString() }}\"\n           (click)=\"editTodo(todo._id, {owner: todo.owner, completed: !todo.completed,\n            completedAt: !todo.completed ? setDate() : null} );\n             todo.completed = !todo.completed; $event.stopPropagation()\"></i>\n        <form>\n            <input type=\"hidden\" name=\"todo_id\" value=\"activity.id\"/>\n            <input type=\"text\" class=\"entry_label {{todo.completed.toString()}}\"\n                   autoComplete='off' name='updatedActivity' value=\"{{ todo.desc }}\" required readOnly/>\n            <!-- Add check if is completed-->\n            <!--            <span class=\"wrap__icon_info wrap__icon_info-edit\">-->\n            <!--                <i class=\"icon_info fas fa-pencil-alt\"></i>-->\n            <!--            </span>-->\n        </form>\n\n        <button type=\"button\" class=\"hidden delete__todo wrap__icon_info wrap__icon_info-delete\"\n                (click)=\"deleteTodo(todo._id); $event.stopPropagation()\">\n              <span class=\"delete__todo wrap__icon_info wrap__icon_info-delete\">\n                <i class=\"icon_info fas fa-trash-alt\"></i>\n              </span>\n        </button>\n\n            <i class=\"icon_info fas fa-grip-lines\" cdkDragHandle></i>\n    </div>\n</div>\n\n<app-add-task (addTodo)=\"onAddTodo($event)\"></app-add-task>"
+module.exports = "<div cdkDropList (cdkDropListDropped)=\"drop($event)\">\n    <div cdkDrag cdkDragLockAxis=\"y\" *ngFor=\"let todo of todos; index as i\" id=\" {{todo._id}} \"\n         class=\"entry_item_wrap  {{todo.completed.toString()}} \">\n        <i class=\"icon_info fas fa-check {{ todo.completed.toString() }}\"\n           (click)=\"editTodo(todo._id, {owner: todo.owner, completed: !todo.completed,\n            completedAt: !todo.completed ? setDate() : null} );\n             todo.completed = !todo.completed; $event.stopPropagation()\"></i>\n        <form>\n            <input type=\"hidden\" name=\"todo_id\" value=\"activity.id\"/>\n            <input type=\"text\" class=\"entry_label {{todo.completed.toString()}}\"\n                   autoComplete='off' name='updatedActivity' value=\"{{ todo.desc }}\" required readOnly/>\n            <!-- Add check if is completed-->\n            <!--            <span class=\"wrap__icon_info wrap__icon_info-edit\">-->\n            <!--                <i class=\"icon_info fas fa-pencil-alt\"></i>-->\n            <!--            </span>-->\n        </form>\n        <i class=\"icon_info delete__todo  fas fa-trash-alt\"\n           (click)=\"deleteTodo(todo._id); $event.stopPropagation()\" [style.display]=\"display('trash')\"></i>\n        <i class=\"icon_info fas fa-grip-lines\" [style.display]=\"display('grip')\" cdkDragHandle></i>\n    </div>\n</div>\n\n<app-add-task (addTodo)=\"onAddTodo($event)\"></app-add-task>\n<label for=\"deleteTodos\" id=\"label_deleteTodos\">\n    <input type=\"checkbox\" id=\"deleteTodos\" (change)=\"toggleDelete($event)\">\n    <i class=\"menu_delete fas fa-trash-alt\"></i>\n</label>"
 
 /***/ }),
 
@@ -568,6 +568,17 @@ var TaskListComponent = /** @class */ (function () {
     TaskListComponent.prototype.deleteTodo = function (todoid) {
         var _this = this;
         this.todayService.deleteTodo(todoid).subscribe(function (res) { return _this.todos = _this.todos.filter(function (todo) { return todo._id !== todoid; }); });
+    };
+    TaskListComponent.prototype.toggleDelete = function (event) {
+        this.deleteState = event.target.checked;
+    };
+    TaskListComponent.prototype.display = function (item) {
+        if (this.deleteState) {
+            return item === 'trash' ? 'block' : 'none';
+        }
+        else {
+            return item === 'trash' ? 'none' : 'block';
+        }
     };
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('cdkDropListOrientation'),

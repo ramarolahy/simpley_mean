@@ -69,5 +69,18 @@ export class TaskListComponent implements OnInit {
         )
     }
 
+    private deleteState;
+
+   toggleDelete(event) {
+       this.deleteState = event.target.checked;
+    }
+
+    display(item: string) {
+        if (this.deleteState) {
+            return item === 'trash' ?  'block' : 'none';
+        } else {
+            return item === 'trash' ?  'none' : 'block';
+        }
+    }
 
 }

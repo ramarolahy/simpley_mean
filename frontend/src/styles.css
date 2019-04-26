@@ -56,6 +56,33 @@
   i.fa-check.false:hover {
     color: rgba(18, 53, 61, 0.44);
   }
+  i.fas.nav-btn {
+    font-size: 1em !important;
+  }
+
+  #deleteTodos:checked ~ i {
+    color: rgb(205, 92, 92) !important;
+  }
+
+  i.menu_delete.fas.fa-trash-alt:hover {
+    color: rgba(205, 92, 92, 0.29) !important;
+  }
+
+  /* second child: settings button */
+  div.wrap > #checking ~ .blob:nth-child(2) {
+    left: 0;
+    bottom: 3em !important;
+  }
+  /* second child: planner button */
+  div.wrap > #checking ~ .blob:nth-child(3) {
+    left: 2.2em !important;
+    bottom: 2.2em !important;
+  }
+  /* second child: logout button */
+  div.wrap > #checking ~ .blob:nth-child(4) {
+    left: 3em !important;
+    bottom: 0em;
+  }
 
 }
 
@@ -90,18 +117,18 @@
 
   /* second child: settings button */
   div.wrap > #checking ~ .blob:nth-child(2) {
-    left: 3em !important;
-    bottom: 0px;
+    left: 0;
+    bottom: 3em !important;
   }
   /* second child: planner button */
   div.wrap > #checking ~ .blob:nth-child(3) {
-    left: 6em !important;
-    bottom: 0px;
+    left: 2.2em !important;
+    bottom: 2.2em !important;
   }
   /* second child: logout button */
   div.wrap > #checking ~ .blob:nth-child(4) {
-    left: 9em !important;
-    bottom: 0px;
+    left: 3em !important;
+    bottom: 0em;
   }
   /*  ============ TODAY ================*/
 
@@ -218,7 +245,7 @@
     width: 100% !important;
   }
 
-  button.hidden.wrap__icon_info-delete {
+  i.hidden.icon_info.delete__todo {
     right: 50px !important;
   }
 
@@ -610,19 +637,47 @@ div.wrap > #checking~ .blob {
 
 /* second child: settings button */
 div.wrap > #checking ~ .blob:nth-child(2) {
-  left: 150px;
-  bottom: 0px;
+  left: 0;
+  bottom: 4.5em;
 }
 /* second child: planner button */
 div.wrap > #checking ~ .blob:nth-child(3) {
-  left: 240px;
-  bottom: 0px;
+  left: 4em;
+  bottom: 4em;
 }
 /* second child: logout button */
 div.wrap > #checking ~ .blob:nth-child(4) {
-  left: 330px;
+  left: 4.5em;
   bottom: 0px;
 }
+
+#label_deleteTodos {
+  position: fixed;
+  top: 26px;
+  right: 15px;
+}
+
+
+i.menu_delete.fas.fa-trash-alt {
+  font-size: 2em;
+  color: rgba(205, 92, 92, 0.29);
+  cursor: pointer;
+}
+
+
+i.menu_delete.fas.fa-trash-alt:hover {
+  color: rgb(205, 92, 92);
+}
+
+#deleteTodos {
+  display: none;
+}
+
+#deleteTodos:checked ~ i {
+  color: rgb(205, 92, 92);
+}
+
+
 
 
 /* ===================================== */
@@ -647,7 +702,7 @@ div.main_container {
   background-color: rgba(0, 0, 0, 0.09);
   min-width: 640px;
   border-radius: 10px;
-  padding: 5px 20px 3px 20px;
+  padding: 15px 20px 3px 20px;
   width: auto;
   min-height: 750px;
   overflow-y: scroll;
@@ -1037,9 +1092,6 @@ button#login:hover, button#signup:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-button.hidden.wrap__icon_info-delete {
-  right: 80px;
-}
 button.wrap__icon_info-reorder {
   right: 20px;
 }
@@ -1072,6 +1124,13 @@ i.fa-check {
   font-size: 2em;
 }
 
+i.icon_info.delete__todo {
+  font-size: 1.5em;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #cd5c5c;
+}
 
 i.fa-check:hover, i.fa-check.true {
   color: rgb(67, 170, 106);
@@ -1079,11 +1138,6 @@ i.fa-check:hover, i.fa-check.true {
 
 i.fa-pencil-alt:hover{
   color: cornflowerblue;
-}
-
-
-i.fa-trash-alt:hover {
-  color: orangered;
 }
 
 i.fa-plus {

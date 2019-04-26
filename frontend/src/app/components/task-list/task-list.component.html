@@ -14,16 +14,14 @@
             <!--                <i class="icon_info fas fa-pencil-alt"></i>-->
             <!--            </span>-->
         </form>
-
-        <button type="button" class="hidden delete__todo wrap__icon_info wrap__icon_info-delete"
-                (click)="deleteTodo(todo._id); $event.stopPropagation()">
-              <span class="delete__todo wrap__icon_info wrap__icon_info-delete">
-                <i class="icon_info fas fa-trash-alt"></i>
-              </span>
-        </button>
-
-            <i class="icon_info fas fa-grip-lines" cdkDragHandle></i>
+        <i class="icon_info delete__todo  fas fa-trash-alt"
+           (click)="deleteTodo(todo._id); $event.stopPropagation()" [style.display]="display('trash')"></i>
+        <i class="icon_info fas fa-grip-lines" [style.display]="display('grip')" cdkDragHandle></i>
     </div>
 </div>
 
 <app-add-task (addTodo)="onAddTodo($event)"></app-add-task>
+<label for="deleteTodos" id="label_deleteTodos">
+    <input type="checkbox" id="deleteTodos" (change)="toggleDelete($event)">
+    <i class="menu_delete fas fa-trash-alt"></i>
+</label>
