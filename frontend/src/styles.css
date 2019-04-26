@@ -79,9 +79,16 @@
     bottom: 2.2em !important;
   }
   /* second child: logout button */
-  div.wrap > #checking ~ .blob:nth-child(4) {
-    left: 3em !important;
-    bottom: 0em;
+  /*div.wrap > #checking ~ .blob:nth-child(4) {*/
+  #logout {
+    position: fixed;
+    right: 3em !important;
+    bottom: 3em;
+  }
+
+  i.fas.nav-btn.fa-door-open {
+    color: #516f86;
+    font-size: 2em !important;
   }
 
 }
@@ -129,6 +136,17 @@
   div.wrap > #checking ~ .blob:nth-child(4) {
     left: 3em !important;
     bottom: 0em;
+  }
+
+  #logout {
+    position: fixed;
+    right: 2em !important;
+    bottom: 3em;
+  }
+
+  i.fas.nav-btn.fa-door-open {
+    color: #516f86;
+    font-size: 2em !important;
   }
   /*  ============ TODAY ================*/
 
@@ -649,6 +667,17 @@ div.wrap > #checking ~ .blob:nth-child(3) {
 div.wrap > #checking ~ .blob:nth-child(4) {
   left: 4.5em;
   bottom: 0px;
+}
+
+i.fas.nav-btn.fa-door-open {
+  color: #516f86;
+  font-size: 2em;
+}
+
+#logout {
+  position: fixed;
+  right: 3em !important;
+  bottom: 3em;
 }
 
 #label_deleteTodos {
