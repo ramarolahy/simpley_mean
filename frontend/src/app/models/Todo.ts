@@ -1,3 +1,6 @@
+/**
+ * Todo model interface
+ */
 export interface Todo {
     owner: string;
     desc: string;

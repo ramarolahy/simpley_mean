@@ -5,7 +5,6 @@ import {Router} from '@angular/router';
 
 import {ApiService, TokenPayload} from "../api/api.service";
 
-
 // Interfaces here
 // The interface is to handle the data types (useful for type checking the application.
 export interface UserDetails {
@@ -16,7 +15,6 @@ export interface UserDetails {
     iat: number;
 }
 
-
 // See https://angular.io/api/core/Injectable for Injectable decorator
 @Injectable()
 export class AuthenticationService {
@@ -24,7 +22,6 @@ export class AuthenticationService {
 
     constructor(private api: ApiService, private http: HttpClient, private router: Router) {
     }
-
 
     /**
      * Method to check
@@ -41,6 +38,9 @@ export class AuthenticationService {
         }
     }
 
+    /**
+     * Public Class method to check if user is logged in.
+     */
     public isLoggedIn(): boolean {
         const user = this.getUserDetails();
         if (user) {

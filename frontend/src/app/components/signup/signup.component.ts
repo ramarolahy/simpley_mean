@@ -22,6 +22,9 @@ export class SignupComponent {
 
     // See http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-subscribe
     // to read about subscribe() from RxJS
+    /**
+     * Method to signup a new user.
+     */
     signup() {
         this.auth.signup(this.credentials).subscribe(() => {
             // Redirect to login page if signup successful

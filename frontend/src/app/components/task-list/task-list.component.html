@@ -1,3 +1,10 @@
+<!--
+The task-list component renders all task items from the db. tasks will be rendered in order.
+Tasks can also be arbitrarily ordered.
+Updating tasks to complete is handled by the check icon which sets the value of todo.completed at the component level.
+This updates the icon class instantly.
+Deleting tasks is handled by the trash icon, which  is toggled to a drag handle when the component is not on delete state.
+-->
 <div cdkDropList (cdkDropListDropped)="drop($event)">
     <div cdkDrag cdkDragLockAxis="y" *ngFor="let todo of todos; index as i" id=" {{todo._id}} "
          class="entry_item_wrap  {{todo.completed.toString()}} ">

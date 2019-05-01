@@ -7,6 +7,9 @@ export class AuthenticateService implements CanActivate {
 
   constructor(private auth: AuthenticationService, private router: Router) {}
 
+  /**
+   * Class method to check if user is logged in before rendering auth guarded component.
+   */
   canActivate() {
     if (!this.auth.isLoggedIn()) {
       this.router.navigateByUrl('/login');

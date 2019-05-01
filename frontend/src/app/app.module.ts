@@ -24,7 +24,7 @@ import {AuthenticateService} from "./services/auth/authenticate.service";
 import {TodayService} from "./services/today/today.service";
 import {AlertService} from "./services/alerts/alert.service";
 
-
+// App routes. Accessible via HashLocationStrategy
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'login', component: LoginComponent},
@@ -34,7 +34,7 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [
-        // Components
+        // Declare all components here
         AppComponent,
         SignupComponent,
         LoginComponent,
@@ -45,6 +45,7 @@ const routes: Routes = [
         AddTaskComponent
     ],
     imports: [
+        // Declare all modules here, as well as packages used by the app.
         BrowserModule,
         FormsModule,
         HttpClientModule,
@@ -61,6 +62,8 @@ const routes: Routes = [
         provide: APP_BASE_HREF,
         useValue: '/'
     },
+        // Use HashLocationStrategy in order to allow the user to enter and endpoint at the browser address.
+        // Enter after /#/
         {provide: LocationStrategy, useClass: HashLocationStrategy},
         ApiService, AuthenticationService, AuthenticateService, TodayService, AlertService],
     // Which components gets booted first?

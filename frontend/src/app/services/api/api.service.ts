@@ -81,6 +81,7 @@ export class ApiService {
                 })
             );
         } else {
+            // API transaction cases
             switch (method) {
                 case "post":
                     return this.http.post(`${baseURL}/api/${type}/${param}`, body, {headers: jsonMimeType})

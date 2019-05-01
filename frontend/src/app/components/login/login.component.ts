@@ -18,14 +18,17 @@ export class LoginComponent {
 
     // See http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-subscribe
     // to read about subscribe() from RxJS
-    login() {
+    /**
+     * Private method to login users
+     */
+    public login() {
         this.auth.login(this.credentials).subscribe(() => {
             this.router.navigateByUrl('/today');
             this.toastr.showSuccess('Login successful! Happy planning!', null);
         }, (err) => {
             this.toastr.showWarning('Oops! Please check your credentials.', null);
             console.error(err);
-            // TODO: Set up login fail counter and suggest signing up?
+            // TODO: Set up login fail counter and suggest signing up? OR reset password!
         });
     }
 

@@ -1,16 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  //selector: 'app-today',
-  templateUrl: './today.component.html',
-  //styleUrls: ['./today.component.css']
+    //selector: 'app-today',
+    templateUrl: './today.component.html',
+    //styleUrls: ['./today.component.css']
 })
 export class TodayComponent implements OnInit {
+    constructor() {
+    }
 
-  constructor() { }
-
-  ngOnInit() {
-    // load all todos
-  }
-
+    ngOnInit() {
+    }
 }

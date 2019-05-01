@@ -15,8 +15,8 @@
   div.avatar {
     position: absolute;
     /* Check position inside navbar */
-    left: 15px !important;
-    bottom: 15px !important;
+    left: 2em !important;
+    bottom: 2em !important;
     width: 80px !important;
     height: 80px !important;
     border: 3px solid #48606b;
@@ -68,11 +68,11 @@
     color: rgba(205, 92, 92, 0.29) !important;
   }
 
-  /* second child: settings button */
-  div.wrap > #checking ~ .blob:nth-child(2) {
-    left: 0;
-    bottom: 3em !important;
-  }
+  /*!* second child: settings button *!*/
+  /*div.wrap > #checking ~ .blob:nth-child(2) {*/
+  /*  left: 0;*/
+  /*  bottom: 3em !important;*/
+  /*}*/
   /* second child: planner button */
   div.wrap > #checking ~ .blob:nth-child(3) {
     left: 2.2em !important;
@@ -82,13 +82,14 @@
   /*div.wrap > #checking ~ .blob:nth-child(4) {*/
   #logout {
     position: fixed;
-    right: 3em !important;
-    bottom: 3em;
+    right: 4em !important;
+    bottom: 4em;
   }
 
-  i.fas.nav-btn.fa-door-open {
+  i.fas.nav-btn.fa-sign-out-alt {
     color: #516f86;
-    font-size: 2em !important;
+    font-size: 3em !important;
+    cursor: pointer;
   }
 
 }
@@ -144,9 +145,10 @@
     bottom: 3em;
   }
 
-  i.fas.nav-btn.fa-door-open {
+  i.fas.nav-btn.fa-sign-out-alt {
     color: #516f86;
-    font-size: 2em !important;
+    font-size: 3em !important;
+    cursor: pointer;
   }
   /*  ============ TODAY ================*/
 
@@ -158,6 +160,7 @@
     background-color: rgba(0, 0, 0, 0.09);
     padding: 15px 5px 120px 5px !important;
     min-width: 100% !important;
+    height: 100vh !important;
     width: 100% !important;
     max-height: 100vh !important;
     overflow-y: scroll !important;
@@ -540,8 +543,8 @@ div#radial-container {
 div.avatar {
   position: absolute;
   /* Check position inside navbar */
-  left: 40px;
-  bottom: 40px;
+  left: 2em;
+  bottom: 2em;
   width: 130px;
   height: 130px;
   border: 3px solid #48606b;
@@ -669,15 +672,16 @@ div.wrap > #checking ~ .blob:nth-child(4) {
   bottom: 0px;
 }
 
-i.fas.nav-btn.fa-door-open {
+i.fas.nav-btn.fa-sign-out-alt {
   color: #516f86;
-  font-size: 2em;
+  font-size: 3em;
+  cursor: pointer;
 }
 
 #logout {
   position: fixed;
-  right: 3em !important;
-  bottom: 3em;
+  right: 4em !important;
+  bottom: 4em;
 }
 
 #label_deleteTodos {
@@ -1119,6 +1123,10 @@ button#login:hover, button#signup:hover {
   -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button#login:focus, button#signup:focus {
+  outline: none;
 }
 
 button.wrap__icon_info-reorder {

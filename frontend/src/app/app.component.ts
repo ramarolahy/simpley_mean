@@ -7,5 +7,6 @@ import { AuthenticationService } from './services/auth/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  // Inject the AuthenticationService to make it available throughout the app.
   constructor(public auth: AuthenticationService) {}
 }
